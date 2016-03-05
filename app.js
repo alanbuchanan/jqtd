@@ -1,8 +1,13 @@
 // User can click Add to add
 $('#todos button').click(function(){
   var $inputVal = $('input').val();
-  $('#todos ul').append('<li>' + $inputVal + '</li>')
-  $('#todos input').val('');
+  if($inputVal.length < 3){
+    $('#val-three-chars').css('visibility', 'visible');
+  } else {
+    $('#val-three-chars').css('visibility', 'hidden');
+    $('#todos ul').append('<li>' + $inputVal + '</li>')
+    $('#todos input').val('');
+  }
 });
 
 // User can press enter to add
