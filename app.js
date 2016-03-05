@@ -12,8 +12,17 @@ $('#todos input').keypress(function(e){
     $('#todos button').click();
     return false;
   }
-})
+});
 
 $('ul').on('click', 'li', function(){
-  $(this).remove();
+  $(this).toggleClass('strike')
+});
+
+$('#todos input').on('keypress', function(){
+  var $inputVal = $('input').val();
+  if($inputVal.length < 3){
+    $('#val-three-chars').css('visibility', 'visible');
+  } else {
+    $('#val-three-chars').css('visibility', 'hidden');
+  }
 });
